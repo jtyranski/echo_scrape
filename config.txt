@@ -1,0 +1,16 @@
+{
+    "login_url": "https://login.echo-usa.com", 
+    "username": "", 
+    "password": "", 
+    "headless_mode": true, 
+    "max_rows": "all",
+    "input_file": "allproductssamplefile.csv",
+    "output_file": "output.csv",
+    "rsv_qty": 5,
+    "ftp_host": "",
+    "ftp_port": 21,
+    "ftp_username": "",
+    "ftp_password": "",
+    "ftp_directory": "",
+    "overwrite_existing": true
+}
