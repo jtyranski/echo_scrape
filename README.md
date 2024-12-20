@@ -42,7 +42,7 @@ You must have `chromedriver.exe` installed for Selenium to work. Depending on yo
 
 You can download the appropriate version of `chromedriver` from the official website: [ChromeDriver](https://developer.chrome.com/docs/chromedriver/downloads).
 
-Once downloaded, place the `chromedriver.exe` in the same directory as the script or specify its path in the configuration file (`config.txt`).
+Once downloaded, place the `chromedriver.exe` in the same directory as the script.
 
 ### Configuration (`config.txt`)
 
@@ -112,12 +112,12 @@ The output CSV file will contain the following fields, each representing a speci
 - **Subtype**
     - *Not currently used* - `blank`
 
-- **Item Code**
-- **Description**: A unique identifier for the product. This code is often used to track inventory and can be a part number, SKU, or internal identifier.
-- **Example**: `ECH  12345`, `BIL  98765`
+    - **Item Code**
+    - **Description**: A unique identifier for the product. This code is often used to track inventory and can be a part number, SKU, or internal identifier.
+    - **Example**: `ECH  12345`, `BIL  98765`
 
 - **Item Description**
-            - **Description**: A brief description of the product, often including features, size, or other distinguishing characteristics.
+    - **Description**: A brief description of the product, often including features, size, or other distinguishing characteristics.
     - **Example**: `20" BAR & CHAIN COMBO`, `PISTON KIT, 1-RING`
 
 - **Retail**
@@ -125,10 +125,10 @@ The output CSV file will contain the following fields, each representing a speci
     - **Example**: `199.99`, `349.95`
 
 - **Qty on Hand**
-- *Not currently used* - `0`
+    - *Not currently used* - `0`
 
 - **Qty on Order**
-        - *Not currently used* - `0`
+    - *Not currently used* - `0`
 
 - **RSV Qty**
     - **Description**: The reserved quantity, which represents the number of units set aside for specific orders or needs. This is typically used in inventory management to allocate stock.
