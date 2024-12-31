@@ -88,12 +88,12 @@ driver.find_element(By.NAME, "password").send_keys(Keys.RETURN)
 time.sleep(10)  # Allow time for login
 
 # Read the input file
-with open(input_file, "r") as csvfile:
+with open(input_file, "r", encoding="utf-8") as csvfile:
     reader = csv.reader(csvfile)
     rows = list(reader)
 
 # Open the output file for writing
-with open(output_file, "w", newline="") as csvfile:
+with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     writer = csv.writer(csvfile)
     
     # Write the header row
@@ -160,7 +160,7 @@ with open(output_file, "w", newline="") as csvfile:
 driver.quit()
 
 # FTP upload logic (only after scraping is complete)
-if ftp_host != "None":
+if ftp_host != "None" and ftp_host != "":
     try:
         ftp = ftplib.FTP()
         ftp.connect(ftp_host, ftp_port)
