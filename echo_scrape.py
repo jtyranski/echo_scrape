@@ -1,3 +1,7 @@
+# echo_scrape.py
+# Version: 0.2.0
+# Last Updated: 2024-12-31
+
 import csv
 import sys
 from pathlib import Path
