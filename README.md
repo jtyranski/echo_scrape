@@ -73,7 +73,7 @@ The configuration file (`config.txt`) contains the necessary parameters for the 
 - `headless_mode`: Boolean (true or false), if true, the browser will operate in headless mode (no GUI).
 - `max_rows`: Set to "all" for scraping all rows or an integer to limit the number of rows to scrape.
 - `input_file`: The filename of the input CSV file containing the products to be scraped.
-- `output_file`: The filename where the output CSV file will be saved (default is output.csv).
+- `output_file`: The filename where the output file will be saved (default is output.csv, but can be .csv or .xlsx)
 - `ftp_host`: The FTP server hostname or IP address. If set to "None", the file is saved locally.
 - `ftp_port`: The FTP server port (default is 21).
 - `ftp_username`: Your FTP username.
@@ -100,7 +100,7 @@ Ensure that:
 After scraping is complete, the script will upload the output CSV file to the specified FTP server. If the `overwrite_existing` flag is set to `false`, a timestamp will be appended to the file name before uploading.
 
 ## Output Fields
-The output CSV file will contain the following fields, each representing a specific piece of product information:
+The output file will contain the following fields, each representing a specific piece of product information:
 
 - **MFG**
     - **Description**: The manufacturer of the product. This field provides the name of the company that produces the item.
@@ -153,3 +153,17 @@ For any questions, issues, or feedback regarding this script, please reach out:
 - **Email**: <a href="mailto:jim@tyranski.com">jim@tyranski.com</a> 
 
 Please ensure to provide detailed information about the issue you're experiencing, including any relevant error messages and the configuration details used when running the script.
+
+## Changelog
+### 0.3.0 - Added output support of xlsx
+- Will save in .xlsx format if specified in config.txt output_file
+- If ftp_host includes "ftp://", connection will still work
+- Added code to exclude text from Retail and Cost columns in output file
+- Multiple product results now navigate to first result, then scrapes information
+- If product not found, output file now prints 'Product Not Found' in subtype column.
+
+### 0.2.0 - Minor update for scraper and ftp logic
+- Set explicit encoding for read/write of CSV files to UTF-8
+- If ftp_host is set blank "" in config.txt, it will ignore trying to connect
+
+### 0.1.0 - Initial Release
