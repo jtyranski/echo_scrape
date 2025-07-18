@@ -89,10 +89,11 @@ login_url = config["login_url"]
 username = config["username"]
 password = config["password"]
 
+wait = WebDriverWait(driver, 20)
 driver.get(login_url)
-driver.find_element(By.NAME, "username").send_keys(username)
-driver.find_element(By.NAME, "password").send_keys(password)
-driver.find_element(By.NAME, "password").send_keys(Keys.RETURN)
+wait.until(EC.presence_of_element_located((By.NAME, "identifier"))).send_keys(username)
+wait.until(EC.presence_of_element_located((By.NAME, "credentials.passcode"))).send_keys(password)
+wait.until(EC.presence_of_element_located((By.NAME, "credentials.passcode"))).send_keys(Keys.RETURN)
 time.sleep(10)  # Allow time for login
 
 # Read the input file
