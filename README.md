@@ -32,6 +32,7 @@ The `requirements.txt` includes the following libraries:
 - `selenium==4.8.3`: For automating web browser interactions.
 - `lxml==4.6.3`: For faster HTML/XML parsing (used by BeautifulSoup).
 - `pyinstaller==4.10`: For creating executable files from the Python script.
+- `openpyxl==3.0.9`: For optional exporting to xlsx format.
 
 #### Chromedriver
 
@@ -155,6 +156,7 @@ For any questions, issues, or feedback regarding this script, please reach out:
 Please ensure to provide detailed information about the issue you're experiencing, including any relevant error messages and the configuration details used when running the script.
 
 ## Changelog
+### 0.4.0 - Fixed updated username/password elements when authorizing login page
 ### 0.3.0 - Added output support of xlsx
 - Will save in .xlsx format if specified in config.txt output_file
 - If ftp_host includes "ftp://", connection will still work

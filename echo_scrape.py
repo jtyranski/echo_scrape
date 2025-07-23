@@ -1,6 +1,6 @@
 # echo_scrape.py
-# Version: 0.3.0
-# Last Updated: 2025-01-20
+# Version: 0.4.0
+# Last Updated: 2025-07-18
 
 import csv
 import sys
