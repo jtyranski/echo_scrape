@@ -12,11 +12,9 @@
 ## Requirements
 
 ### Minimum System Requirements
-- **Operating System**: Windows 7 or later (Windows 10/11 recommended)
-- **Python Version**: 3.8.10 (for Windows 7) or later (for Windows 10/11)
-- **chromedriver**: 
-  - **Windows 7**: Use chromedriver version 109.
-  - **Windows 10/11**: Use the latest version of chromedriver.
+- **Operating System**: Windows 10/11 or modern Linux distributions (Ubuntu 20.04+, Fedora 32+, CentOS 8+, etc)
+- **Python Version**: 3.7+
+- **chromedriver**: Use the latest version of chromedriver to match installed chrome.
 
 ### Dependencies
 You can install the necessary dependencies via the provided `requirements.txt`. Run the following command to install them:
@@ -27,23 +25,22 @@ pip install -r requirements.txt
 
 The `requirements.txt` includes the following libraries:
 
-- `requests==2.26.0`: For making HTTP requests.
-- `beautifulsoup4==4.10.0`: For parsing HTML content.
-- `selenium==4.8.3`: For automating web browser interactions.
-- `lxml==4.6.3`: For faster HTML/XML parsing (used by BeautifulSoup).
-- `pyinstaller==4.10`: For creating executable files from the Python script.
-- `openpyxl==3.0.9`: For optional exporting to xlsx format.
+- `requests`: For making HTTP requests.
+- `beautifulsoup4`: For parsing HTML content.
+- `selenium`: For automating web browser interactions.
+- `lxml`: For faster HTML/XML parsing (used by BeautifulSoup).
+- `pyinstaller`: For creating executable files from the Python script.
+- `openpyxl`: For optional exporting to xlsx format.
 
 #### Chromedriver
 
-You must have `chromedriver.exe` installed for Selenium to work. Depending on your version of Windows:
-
-    Windows 7: Use chromedriver version 109.
-    Windows 10/11: Use the latest version of chromedriver.
+You must have Chromedriver installed for Selenium to work.
+- Windows 10/11: Use the latest version of `chromedriver.exe`.
+- Linux: Use the latest version of `chromedriver`
 
 You can download the appropriate version of `chromedriver` from the official website: [ChromeDriver](https://developer.chrome.com/docs/chromedriver/downloads).
 
-Once downloaded, place the `chromedriver.exe` in the same directory as the script.
+Once downloaded, place `chromedriver.exe` or `chromedriver` in the same directory as the script.
 
 ### Configuration (`config.txt`)
 
@@ -84,16 +81,19 @@ The configuration file (`config.txt`) contains the necessary parameters for the 
 - `rsv_qty`: The default reserved quantity, set to 5 by default.
 
 ### Running the Script
-#### Windows 7/10/11
 
 To run the script, execute the following command in the terminal:
 ```bash
 python echo_scrape.py
 ```
-Ensure that:
+or
+```bash
+python3 echo_scrape.py
+```
 
+Ensure that:
 - The configuration file (`config.txt`) is set up with the correct parameters.
-- The `chromedriver.exe` version is correct for your Windows version (see the requirements above).
+- The chromedriver version is correct for your Operating System (see the requirements above).
 - The input CSV file exists, and the FTP server information is correctly configured if you intend to upload the file to an FTP server.
 
 #### FTP Upload:
@@ -141,7 +141,7 @@ The output file will contain the following fields, each representing a specific 
 
 ### Troubleshooting
 #### Common Issues:
-- chromedriver version mismatch: Ensure you are using the correct version of `chromedriver` based on your Windows version.
+- chromedriver version mismatch: Ensure you are using the correct version of `chromedriver` based on your Operating System version.
 - FTP connection errors: Check that the FTP credentials and server path in `config.txt` are correct. Ensure that the FTP server is accessible.
 
 ## License
@@ -156,7 +156,14 @@ For any questions, issues, or feedback regarding this script, please reach out:
 Please ensure to provide detailed information about the issue you're experiencing, including any relevant error messages and the configuration details used when running the script.
 
 ## Changelog
-### 0.4.0 - Fixed updated username/password elements when authorizing login page
+### 0.5.0 - Updated OS platforms
+- Added cross-platform for executing from Linux
+- Removed unsupported Windows 7
+- Updated requirements.txt to use latest dependencies
+
+### 0.4.0 - Fixed authentication
+- Updated username/password elements when authorizing login page
+
 ### 0.3.0 - Added output support of xlsx
 - Will save in .xlsx format if specified in config.txt output_file
 - If ftp_host includes "ftp://", connection will still work

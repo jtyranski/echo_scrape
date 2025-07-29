@@ -1,7 +1,8 @@
 # echo_scrape.py
-# Version: 0.4.0
-# Last Updated: 2025-07-18
+# Version: 0.5.0
+# Last Updated: 2025-07-28
 
+import platform
 import csv
 import sys
 from pathlib import Path
@@ -27,6 +28,7 @@ else:
     base_path = Path(__file__).resolve().parent
 
 config_path = base_path / "config.txt"
+chromedriver_filename = ""
 
 if not config_path.exists():
     sys.exit("Error: config.txt is missing.")
@@ -77,11 +79,16 @@ if headless_mode:
     options.add_argument("--headless")
     options.add_argument("--disable-gpu")
 
-chromedriver_path = base_path / "chromedriver.exe"
-if not chromedriver_path.exists():
-    sys.exit("Error: chromedriver.exe is missing.")
+if platform.system() == "Windows":
+    chromedriver_filename = "chromedriver.exe"
+else:
+    chromedriver_filename = "chromedriver"
 
-driver_service = Service(chromedriver_path)
+chromedriver_path = base_path / chromedriver_filename
+if not chromedriver_path.exists():
+    sys.exit("Error: {chromedriver_filename} is missing at {chromedriver_path}.")
+
+driver_service = Service(str(chromedriver_path))
 driver = webdriver.Chrome(service=driver_service, options=options)
 
 # Log in to the website
